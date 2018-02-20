@@ -37,7 +37,7 @@ const getData = async function getData(subreddit) {
 
     if (post.is_self) {
       data.self.push(post);
-    } else if (isRedditHostedGif(post) || post.url.includes('gif')) {
+    } else if (isRedditHostedGif(post) || post.url.includes('gif') || post.url.includes('gfycat')) {
       data.gif.push(post);
     } else if (post.is_video || post.post_hint.includes('video')) {
       data.video.push(post);
