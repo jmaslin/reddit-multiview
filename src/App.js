@@ -10,6 +10,7 @@ import getData from './reddit';
 /*
 Components:
 - form ( sort method, auth?, counts, geo filter, nsfw toggle (OFF=default))
+- subreddit badge [if on popular/all only]
 */
 
 class AppNav extends Component {

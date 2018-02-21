@@ -34,9 +34,11 @@ class ItemCard extends Component {
         {showImg}
         <CardBody>
           <CardText>
-            <Badge color="info">{item.multi_type}</Badge>&nbsp;
             <a target="_blank" href={`https://reddit.com${item.permalink}`}>{item.title}</a>
         </CardText>
+        <Badge color="info">{item.subreddit_name_prefixed}</Badge>
+        &nbsp;
+        <Badge color="info">{item.multi_type}</Badge>
         </CardBody>
       </Card>
     )
