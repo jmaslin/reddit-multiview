@@ -32,25 +32,27 @@ const getData = async function getData(subreddit) {
     console.debug('Res', response)
   }
 
-  response.forEach((post) => {
+  const posts = response.map((post) => {
     if (!post.post_hint) { post.post_hint = ''; }
 
     if (post.is_self) {
-      data.self.push(post);
+      post.multi_type = 'self';
     } else if (isRedditHostedGif(post) || post.url.includes('gif') || post.url.includes('gfycat')) {
-      data.gif.push(post);
+      post.multi_type = 'gif';
     } else if (post.is_video || post.post_hint.includes('video')) {
-      data.video.push(post);
+      post.multi_type = 'video';
     } else if (post.post_hint === 'image') {
-      data.image.push(post);
+      post.multi_type = 'image';
     } else if (post.post_hint === 'link') {
-      data.link.push(post);
+      post.multi_type = 'link';
     } else {
       console.debug('Could not identify type', post);
     }
+
+    return post;
   });
 
-  return data;
+  return posts;
 };
 
 export default getData;

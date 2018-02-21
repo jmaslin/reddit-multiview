@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Badge } from 'reactstrap';
 
 class ItemCard extends Component {
   isValidThumbnail() {
@@ -29,16 +29,16 @@ class ItemCard extends Component {
       showImg = <CardImg top width={item.thumbnail_width} src={item.thumbnail} alt={item.title} />
     }
 
-
     return (
-      <div>
-        <Card>
-          {showImg}
-          <CardBody>
-            <CardText><a target="_blank" href={`https://reddit.com${item.permalink}`}>{item.title}</a></CardText>
-          </CardBody>
-        </Card>
-      </div>
+      <Card>
+        {showImg}
+        <CardBody>
+          <CardText>
+            <Badge color="info">{item.multi_type}</Badge>&nbsp;
+            <a target="_blank" href={`https://reddit.com${item.permalink}`}>{item.title}</a>
+        </CardText>
+        </CardBody>
+      </Card>
     )
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, CardColumns, Badge } from 'reactstrap';
 import ItemCard from './ItemCard';
 
 class Section extends Component {
@@ -12,8 +12,8 @@ class Section extends Component {
 
     return (
       <div>
-        <div>{sectionName} Posts</div>
-        {items}
+        <Badge color="primary">{sectionName} Posts</Badge>
+        <div>{items}</div>
       </div>
     )
   }
@@ -22,22 +22,33 @@ class Section extends Component {
 class SectionHolder extends Component {
   render() {
     const data = this.props.data;
+    const typesToShow = this.props.types;
 
-    const sections = ['self', 'image', 'video', 'gif', 'link']
-      .filter((section) => {
-        return data[section].length > 0;
-        // TODO: if section is being filtered out as well
+    // const sections = ['self', 'image', 'video', 'gif', 'link']
+    //   .filter((section) => {
+    //     return data[section].length > 0;
+    //     // TODO: if section is being filtered out as well
+    //   })
+    //   .map((section) => {
+    //     return (
+    //       <Col key={section}><Section name={section} data={data[section]} /></Col>
+    //     )
+    //   });
+
+      const items = this.props.data
+      .filter((post) => {
+        return typesToShow[post.multi_type] === true;
       })
-      .map((section) => {
-        return (
-          <Col key={section}><Section name={section} data={data[section]} /></Col>
-        )
+      .map((post) => {
+        return (<ItemCard key={post.id} data={post} />)
       });
 
     return (
       <Container fluid>
         <Row>
-          {sections}
+          <CardColumns>
+            {items}
+          </CardColumns>
         </Row>
       </Container>
     )
