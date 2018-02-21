@@ -33,10 +33,7 @@ class AppNav extends Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+              <NavLink href="https://github.com/jmaslin/reddit-multiview">Github</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
@@ -71,7 +68,7 @@ class App extends Component {
     const toggleName = evt.target.getAttribute('data-key');
     const postToggle = {...this.state.postToggle};
     postToggle[toggleName] = !postToggle[toggleName];
-    
+
     this.setState({ postToggle });
   }
 

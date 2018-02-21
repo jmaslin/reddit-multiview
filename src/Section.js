@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, CardColumns, Badge } from 'reactstrap';
+import { Alert, Container, Row, CardColumns, Badge } from 'reactstrap';
 import ItemCard from './ItemCard';
 
 class Section extends Component {
@@ -35,7 +35,7 @@ class SectionHolder extends Component {
     //     )
     //   });
 
-      const items = this.props.data
+    const items = this.props.data
       .filter((post) => {
         return typesToShow[post.multi_type] === true;
       })
@@ -43,9 +43,16 @@ class SectionHolder extends Component {
         return (<ItemCard key={post.id} data={post} />)
       });
 
+    const showMessage = items.length === 0 ? (
+      <Alert color="warning">
+        Nothing to show! Please try changing your filters.
+      </Alert>
+    ) : '';
+
     return (
       <Container fluid>
         <Row>
+          {showMessage}
           <CardColumns>
             {items}
           </CardColumns>
