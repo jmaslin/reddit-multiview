@@ -1,5 +1,4 @@
-import * as snoowrap from 'snoowrap';
-
+const snoowrap = window.snoowrap;
 let r;
 
 if (process.env.NODE_ENV !== 'production') {

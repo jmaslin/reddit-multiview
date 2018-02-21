@@ -8,8 +8,7 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
     "react-transition-group": "^2.2.1",
-    "reactstrap": "^5.0.0-beta",
-    "snoowrap": "^1.15.2"
+    "reactstrap": "^5.0.0-beta"
   },
   "scripts": {
     "start": "react-scripts start",
