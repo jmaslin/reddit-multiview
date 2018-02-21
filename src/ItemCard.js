@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Badge } from 'reactstrap';
+import { Card, CardImg, CardBody, CardText, Badge } from 'reactstrap';
 
 class ItemCard extends Component {
   isValidThumbnail() {

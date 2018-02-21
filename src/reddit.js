@@ -23,14 +23,6 @@ const isRedditHostedGif = function isRedditHostedGif(post) {
 };
 
 const getData = async function getData(subreddit) {
-  const data = {
-    self: [],
-    image: [],
-    video: [],
-    link: [],
-    gif: []
-  };
-
   console.debug('Get data for subreddit', subreddit);
 
   const response = subreddit && subreddit.length > 0 ?

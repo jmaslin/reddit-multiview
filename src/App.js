@@ -69,9 +69,10 @@ class App extends Component {
 
   toggleType(evt) {
     const toggleName = evt.target.getAttribute('data-key');
-    this.state.postToggle[toggleName] = !this.state.postToggle[toggleName];
-    this.forceUpdate();
-    console.debug('Toggles', this.state.postToggle);
+    const postToggle = {...this.state.postToggle};
+    postToggle[toggleName] = !postToggle[toggleName];
+    
+    this.setState({ postToggle });
   }
 
   async loadData() {

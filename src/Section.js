@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, CardColumns, Badge } from 'reactstrap';
+import { Container, Row, CardColumns, Badge } from 'reactstrap';
 import ItemCard from './ItemCard';
 
 class Section extends Component {
@@ -21,7 +21,7 @@ class Section extends Component {
 
 class SectionHolder extends Component {
   render() {
-    const data = this.props.data;
+    // const data = this.props.data;
     const typesToShow = this.props.types;
 
     // const sections = ['self', 'image', 'video', 'gif', 'link']
