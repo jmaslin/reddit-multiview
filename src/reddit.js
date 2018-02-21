@@ -1,7 +1,19 @@
 import * as snoowrap from 'snoowrap';
-import Config from './config';
 
-const r = new snoowrap(Config);
+let r;
+
+if (process.env.NODE_ENV !== 'production') {
+  const config = require('./config');
+  r = new snoowrap(config.default);
+} else {
+  const config = {
+    userAgent: 'put your user-agent string here',
+    clientId: process.env.REDDIT_CLIENT_ID,
+    clientSecret: process.env.REDDIT_CLIENT_SECRET,
+    refreshToken: process.env.REDDIT_REFRESH_TOKEN
+  };
+  r = new snoowrap(config);
+}
 
 const isRedditHostedGif = function isRedditHostedGif(post) {
   if (post.media && post.media.reddit_video && true === post.media.reddit_video.is_gif) {
